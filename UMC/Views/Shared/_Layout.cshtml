@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Universal Music Player</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <!-- Top menu -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="glyphicon glyphicon-music navbar-brand" aria-hidden="true"></span>@Html.ActionLink("Universal Music Player", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Music<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tracks</a></li>
+                            <li><a href="#">Albums</a></li>
+                            <li><a href="#">Artists</a></li>
+                            <li><a href="#">Playlists</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+<div class="container body-content">
+    @RenderBody()
+</div>
+
+@*@RenderSection("scripts", required: false)*@
+</body>
+</html>
