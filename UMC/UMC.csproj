@@ -49,6 +49,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nemiro.OAuth, Version=1.10.451.895, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.10\lib\net451\Nemiro.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SoundCloud.API.Client, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SoundCloud.API.Client.1.0.0.4\lib\net45\SoundCloud.API.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,9 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -180,20 +189,33 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlaylistController.cs" />
     <Compile Include="DAL\UmcInitializer.cs" />
     <Compile Include="DAL\UmcUser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Attrributes\UmcTrackUrlValidatorAttribute.cs" />
+    <Compile Include="Models\Constants\ValidationConstants.cs" />
+    <Compile Include="Models\DataParsers\UmcDataParser.cs" />
+    <Compile Include="Models\DataParsers\SoundcloudDataParser.cs" />
+    <Compile Include="Models\DataParsers\YoutubeDataParser.cs" />
+    <Compile Include="Models\Factories\UmcTrackDataFactory.cs" />
+    <Compile Include="Models\Factories\UmcTrackFactory.cs" />
+    <Compile Include="Models\SoundcloudTrack.cs" />
+    <Compile Include="Models\UmcUrl.cs" />
+    <Compile Include="Models\YoutubeTrack.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
-    <Compile Include="Models\Track.cs" />
+    <Compile Include="Models\UmcTrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PlaylistViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\bootstrap-custom.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -211,8 +233,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\ajax-loader.svg" />
     <Content Include="img\logo.jpg" />
     <Content Include="img\logo2.jpg" />
+    <Content Include="img\pause-hover.png" />
+    <Content Include="img\pause.png" />
+    <Content Include="img\play-hover.png" />
+    <Content Include="img\play.png" />
     <Content Include="img\player_background.jpg" />
     <Content Include="img\soundcloud_icon.png" />
     <Content Include="img\umc_background.jpg" />
@@ -232,6 +259,8 @@
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -240,7 +269,11 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\soundcloud-custom.js" />
+    <Content Include="Scripts\soundcloud-sdk-3.0.0.js" />
+    <Content Include="Scripts\SoundcloudJqueryPlugin.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="UsefulLinks.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -275,6 +308,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_PlaylistPartial.cshtml" />
+    <Content Include="Views\Shared\_MusicPlayerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

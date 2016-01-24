@@ -19,10 +19,10 @@ namespace UMC.DAL
         [Key, ForeignKey("User")]
         public string Id { get; set; }
 
-        public string Name { get; set; }
+        public string SoundcloudToken { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
-        public virtual ICollection<Track> Tracks { get; set; }
+        public virtual ICollection<UmcTrack> Tracks { get; set; }
     }
 }

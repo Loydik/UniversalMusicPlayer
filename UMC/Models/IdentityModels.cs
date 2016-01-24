@@ -28,8 +28,8 @@ namespace UMC.Models
         {
         }
 
-        public DbSet<Track> Tracks { get; set; }
-        //public DbSet<ApplicationUserData> MyUserInfo { get; set; }
+        public DbSet<UmcTrack> Tracks { get; set; }
+        public DbSet<ApplicationUserData> ApplicationUserData { get; set; }
 
         public static ApplicationDbContext Create()
         {

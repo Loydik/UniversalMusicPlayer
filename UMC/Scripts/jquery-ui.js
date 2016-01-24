@@ -8347,7 +8347,7 @@ var dialog = $.widget( "ui.dialog", {
 			that._trigger( "focus" );
 		});
 
-		// Track the dialog immediately upon openening in case a focus event
+		// UmcTrack the dialog immediately upon openening in case a focus event
 		// somehow occurs outside of the dialog before an element inside the
 		// dialog is focused (#10152)
 		this._makeFocusTarget();

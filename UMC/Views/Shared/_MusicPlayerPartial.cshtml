@@ -1,0 +1,53 @@
+﻿<script>
+    $(document).bind('onPlayerPlay.scPlayer', function(event) {
+        $("#music-player-play-button").removeClass("fa-play");
+        $("#music-player-play-button").addClass("fa-pause");
+    });
+
+    $(document).bind('onPlayerTrackSwitch.scPlayer', function (event, track) {
+        $("#music-player-song-title").html(track.user.username);
+        $("#music-player-song-artist").html(track.title);
+        $("#music-player-total-time").html(track.duration.time);
+    });
+
+    $(document).bind('onMediaTimeUpdate.scPlayer', function (event) {
+        console.log(event.target, 'the track is at ' + event.position + ' out of ' + event.duration + ' which is ' + event.relative + ' of the total');
+    });
+
+</script>
+
+
+
+<div id="music-player" class="noselect" style="display: none">
+    <div id="music-player-header">
+        <div id="music-player-song-info">
+            <h1 id="music-player-song-artist">Suduaya</h1>
+            <br />
+            <p id="music-player-song-title">Empty Your Mind</p>
+        </div>
+        <div id="music-player-repeat">
+            <i class="fa fa-repeat"></i>
+        </div>
+        <div id="music-player-random">
+            <i class="fa fa-random"></i>
+        </div>
+    </div>
+    <div id="music-player-content">
+        <div id="music-player-range">
+            <input type="range" id="range-val" value="46" min="0" max="143">
+            <div id="music-player-range-tip">Some tip</div>
+        </div>
+        <div id="music-player-time">
+            <p>0:00</p>
+        </div>
+        <div id="music-player-buttons">
+            <i class="fa fa-step-backward fa-2x"></i>
+            <i class="fa fa-play fa-2x step" id="music-player-play-button"></i>
+            <i class="fa fa-step-forward fa-2x"></i>
+        </div>
+        <div id="music-player-total-time">
+            <p>2:23</p>
+        </div>
+    </div>
+
+</div>

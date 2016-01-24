@@ -10,7 +10,7 @@ namespace UMC.DAL
     {
         protected override void Seed(ApplicationDbContext context)
         {
-            //var track = new Track(1, "sdsdsd");
+            //var track = new UmcTrack(1, "sdsdsd");
             //context.Tracks.Add(track);
             //context.SaveChanges();
 

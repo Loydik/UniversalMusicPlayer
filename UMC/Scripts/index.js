@@ -36,8 +36,8 @@ $(document).ready(function() {
         document.getElementById('music-player-range-tip').style.display = 'none';
     });
 
-    $("fa-pause").click(function(){
-        alert("Clicked!")
+    $("fa-pause").click(function() {
+        alert("Clicked!");
     });
 });
 

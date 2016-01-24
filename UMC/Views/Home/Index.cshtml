@@ -13,19 +13,16 @@
     <link rel="stylesheet" href="../../Content/music-collection.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../Content/jquery-ui.css">
-    @*<script src="../../Scripts/jquery-2.1.4.js"></script>
-    <script src="../../Scripts/jquery-ui.js"></script>*@
-    @*<script src="../../Scripts/bootstrap.min.js"></script>*@
     <script src="../../Scripts/index.js"></script>
     
     <script>
         $(function () {
             $("#addUrlDialog").hide();
 
-            $("#sortable").sortable({
+            $("#playlist-song-list").sortable({
             
             });
-            $("#sortable").disableSelection();
+            $("#playlist-song-list").disableSelection();
             $("#draggable").draggable();
 
             $("#addUrlButton").click(function () {
@@ -44,256 +41,11 @@
     @*<div id="overlay"></div>*@
 
     <div class="container">
-        <div class="music-collection">
-
-            <div class="music-collection-header">
-                <span class="text">My Tracks</span>
-                <button class="music-collection-float-button" id="addUrlButton"><i class="fa fa-plus noselect"></i></button>
-
-                <div class="dialog" id="addUrlDialog">
-                    <div class="dialog-form">
-                        <div class="group">
-                            <input type="text">
-                            <span class="bar"></span>
-                            <label>Enter url</label>
-                        </div>
-                    </div>
-                    <div class="dialog-actions">
-                        <button id ="closeAddDialogButton">Close</button>
-                        <button>Add</button>
-                    </div>
-                </div>
-
-            </div>
-            <ul class="music-collection-song-list" id="sortable">
-
-        @if (Model != null && Model.CurrentUser != null && Model.CurrentUser.ApplicationUserData.Tracks.Count == 0)
-        {
-            <li>
-                <p>You don't have any tracks yet. You can add them using the (+) button ----></p>
-            </li>
-        }
-
-    @*<li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Suduaya - Empty your Mind</p>
-                            <p class="music-collection-artist">Suduaya</p>
-                            <div class="music-collection-albumart">
-                                <img src="../../img/logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../../img/soundcloud_icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Carbon Based Lifeforms - Interloper</p>
-                            <p class="music-collection-artist">Carbon Based Lifeforms</p>
-                            <div class="music-collection-albumart">
-                                <img src="../../img/logo2.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../../img/youtube-icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Zymosis - Awakening</p>
-                            <p class="music-collection-artist">Zymosis</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/albums/zymosis-logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/soundcloud_icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Solar Fields - Sol</p>
-                            <p class="music-collection-artist">Solar Fields</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/albums/solar-fields-logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/youtube-icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Suduaya - Empty your Mind</p>
-                            <p class="music-collection-artist">Suduaya</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/soundcloud_icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Carbon Based Lifeforms - Interloper</p>
-                            <p class="music-collection-artist">Carbon Based Lifeforms</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/logo2.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/youtube-icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Zymosis - Awakening</p>
-                            <p class="music-collection-artist">Zymosis</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/albums/zymosis-logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/soundcloud_icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <div>
-                            <p class="music-collection-song-name">Solar Fields - Sol</p>
-                            <p class="music-collection-artist">Solar Fields</p>
-                            <div class="music-collection-albumart">
-                                <img src="../img/albums/solar-fields-logo.jpg" alt="" />
-                            </div>
-                            <div class="music-collection-play-button">
-                                <button><i class="fa fa-play-circle"></i></button>
-                                <!--<button><i class="fa fa-pause"></i></button>-->
-                            </div>
-                            <div class="music-collection-source">
-                                <img src="../img/youtube-icon.png" alt="" />
-                            </div>
-                            <div class="music-collection-actions">
-                                <i class="fa fa-bars"></i>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </li>*@
-            </ul>
-        </div>
+       @{ Html.RenderPartial("_PlaylistPartial", Model.PlaylistVm, new ViewDataDictionary());}
     </div>
-    <div id="draggable">
-        <div id="music-player" class="noselect">
-            <div id="music-player-header">
-                <div id="music-player-song-info">
-                    <h1>Suduaya</h1>
-                    <br />
-                    <p>Empty Your Mind</p>
-                </div>
-                <div id="music-player-repeat">
-                    <i class="fa fa-repeat"></i>
-                </div>
-                <div id="music-player-random">
-                    <i class="fa fa-random"></i>
-                </div>
-            </div>
-            <div id="music-player-content">
-                <div id="music-player-range">
-                    <input type="range" id="range-val" value="46" min="0" max="143">
-                    <div id="music-player-range-tip">Some tip</div>
-                </div>
-                <div id="music-player-time">
-                    <p>0:00</p>
-                </div>
-                <div id="music-player-buttons">
-                    <i class="fa fa-step-backward fa-2x"></i>
-                    <i class="fa fa-pause fa-2x step"></i>
-                    <i class="fa fa-step-forward fa-2x"></i>
-                </div>
-                <div id="music-player-total-time">
-                    <p>2:23</p>
-                </div>
-            </div>
 
-        </div>
-    </div>
+<div id="draggable">
+    @Html.Partial("_MusicPlayerPartial")
+</div>
+
 </body>
